@@ -8,6 +8,7 @@ import org.bukkit.block.Block;
 import org.bukkit.util.Vector;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Predicate;
 
 @Getter
@@ -131,8 +132,7 @@ public final class BoundingBox {
         return this;
     }
 
-
-    public boolean checkBlocks(final World world, final Predicate<Material> predicate) {
+    public List<Block> getColided(final World world) {
         final int n = (int)Math.floor(this.minX);
         final int n2 = (int)Math.ceil(this.maxX);
         final int n3 = (int)Math.floor(this.minY);
@@ -152,7 +152,7 @@ public final class BoundingBox {
         }
 
 
-        return list.stream().allMatch(block -> predicate.test(block.getType()));
+        return list;
     }
 
     public double getCenterX() {

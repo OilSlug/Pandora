@@ -13,11 +13,15 @@ public class SpeedA extends Check {
 
     @Override
     public void handle(PlayerData data, PacketEvent event) {
+        if(data.getMovementProcessor().getVelocityTicks() > 0 || data.getMovementProcessor().getFlyingTicks() > 0)return;
+
         double motionXZ = data.getMovementProcessor().getDeltaXZ();
         
         double maxSpeed = data.getMovementProcessor().getServerGroundTicks() > 2 ? 0.288 : 0.34;
 
         maxSpeed += ((data.getPlayer().getWalkSpeed()-0.2) / 0.2) * 0.4f;
+        //maxSpeed += data.getMovementProcessor().getVelocityTicks() > 0 ? 0.5 : 0;
+        maxSpeed += data.getMovementProcessor().getIceTicks() > 0 ? 0.4 : 0;
 
         if(motionXZ > maxSpeed) {
             if (preVl++ > 5) {

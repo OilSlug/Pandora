@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Pandora:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Pandora_jar</output-path>
+    <root id="archive" name="Pandora.jar">
+      <element id="module-output" name="Pandora" />
+    </root>
+  </artifact>
+</component>

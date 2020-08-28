@@ -3,6 +3,7 @@ package cc.oilslug.check.api;
 import cc.oilslug.Pandora;
 import cc.oilslug.alerts.api.Alert;
 import cc.oilslug.data.PlayerData;
+import cc.oilslug.utils.ChatUtils;
 import com.comphenix.protocol.events.PacketEvent;
 import lombok.Getter;
 
@@ -30,4 +31,8 @@ public class Check {
     }
 
     public void handle(final PlayerData data, final PacketEvent event){ }
+
+    public void debug(PlayerData data, String message){
+        data.getPlayer().sendMessage(ChatUtils.colour("&8[&dDebug&8] &7" + message));
+    }
 }
